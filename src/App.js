@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "reactstrap";
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TableList from "./components/TableList";
+import TodosContextProvider from "./contexts/TodosContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <h1 className="mt-4">Todo List</h1>
+        <TodosContextProvider>
+          <TodoForm />
+          <TableList />
+        </TodosContextProvider>
+      </Container>
     </div>
   );
 }
